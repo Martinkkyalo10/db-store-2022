@@ -33,7 +33,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     const { data } = await Axios.post(
-      'https://db-store-server.herokuapp.com/api/orders',
+      ' https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/orders',
       order,
       {
         headers: {
@@ -62,7 +62,7 @@ export const detailsOrder = (orderId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.get(
-      `https://db-store-server.herokuapp.com/api/orders/${orderId}`,
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/orders/${orderId}`,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       }
@@ -85,7 +85,7 @@ export const payOrder =
     } = getState();
     try {
       const { data } = Axios.put(
-        `https://db-store-server.herokuapp.com/api/orders/${order._id}/pay`,
+        ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/orders/${order._id}/pay`,
         paymentResult,
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -107,7 +107,7 @@ export const listOrderMine = () => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.get(
-      'https://db-store-server.herokuapp.com/api/orders/mine',
+      ' https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/orders/mine',
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -132,7 +132,7 @@ export const listOrders =
     } = getState();
     try {
       const { data } = await Axios.get(
-        `https://db-store-server.herokuapp.com/api/orders?seller=${seller}`,
+        ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/orders?seller=${seller}`,
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
@@ -154,7 +154,7 @@ export const deleteOrder = (orderId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = Axios.delete(
-      `https://db-store-server.herokuapp.com/api/orders/${orderId}`,
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/orders/${orderId}`,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       }
@@ -176,7 +176,7 @@ export const deliverOrder = (orderId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = Axios.put(
-      `https://db-store-server.herokuapp.com/api/orders/${orderId}/deliver`,
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/orders/${orderId}/deliver`,
       {},
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -199,7 +199,7 @@ export const summaryOrder = () => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.get(
-      'https://db-store-server.herokuapp.com/api/orders/summary',
+      ' https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/orders/summary',
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       }
