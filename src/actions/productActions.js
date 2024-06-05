@@ -40,7 +40,7 @@ export const listProducts =
     });
     try {
       const { data } = await Axios.get(
-        `https://db-store-server.herokuapp.com/api/products?pageNumber=${pageNumber}&seller=${seller}&name=${name}&category=${category}&min=${min}&max=${max}&rating=${rating}&order=${order}`
+        ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/products?pageNumber=${pageNumber}&seller=${seller}&name=${name}&category=${category}&min=${min}&max=${max}&rating=${rating}&order=${order}`
       );
       dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
     } catch (error) {
@@ -54,7 +54,7 @@ export const listProductCategories = () => async (dispatch) => {
   });
   try {
     const { data } = await Axios.get(
-      `https://db-store-server.herokuapp.com/api/products/categories`
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/products/categories`
     );
     dispatch({ type: PRODUCT_CATEGORY_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -66,7 +66,7 @@ export const detailsProduct = (productId) => async (dispatch) => {
   dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId });
   try {
     const { data } = await Axios.get(
-      `https://db-store-server.herokuapp.com/api/products/${productId}`
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/products/${productId}`
     );
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
@@ -86,7 +86,7 @@ export const createProduct = () => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.post(
-      'https://db-store-server.herokuapp.com/api/products',
+      ' https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/products',
       {},
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -111,7 +111,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.put(
-      `https://db-store-server.herokuapp.com/api/products/${product._id}`,
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/products/${product._id}`,
       product,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -133,7 +133,7 @@ export const deleteProduct = (productId) => async (dispatch, getState) => {
   } = getState();
   try {
     await Axios.delete(
-      `https://db-store-server.herokuapp.com/api/products/${productId}`,
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/products/${productId}`,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       }
@@ -155,7 +155,7 @@ export const createReview =
     } = getState();
     try {
       const { data } = await Axios.post(
-        `https://db-store-server.herokuapp.com/api/products/${productId}/reviews`,
+        ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/products/${productId}/reviews`,
         review,
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
