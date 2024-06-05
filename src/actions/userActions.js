@@ -30,11 +30,14 @@ export const register = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { email, password } });
   try {
     const { data } = await Axios.post(
-      'https://db-store-server.herokuapp.com/api/users/register',
+      ' https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/users/register',
       {
         name,
         email,
         password,
+
+           
+
       }
     );
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
@@ -55,7 +58,7 @@ export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
   try {
     const { data } = await Axios.post(
-      'https://db-store-server.herokuapp.com/api/users/signin',
+      ' https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/users/signin',
       { email, password }
     );
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
@@ -85,7 +88,7 @@ export const detailsUser = (userId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.get(
-      `https://db-store-server.herokuapp.com/api/users/${userId}`,
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/users/${userId}`,
       {
         headers: { Authorization: `Bearer ${userInfo?.token}` },
       }
@@ -106,7 +109,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.put(
-      `https://db-store-server.herokuapp.com/api/users/profile`,
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/users/profile`,
       user,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -130,7 +133,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.put(
-      `https://db-store-server.herokuapp.com/api/users/${user._id}`,
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/users/${user._id}`,
       user,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -152,7 +155,7 @@ export const listUsers = () => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     const { data } = await Axios.get(
-      'https://db-store-server.herokuapp.com/api/users',
+      ' https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/users',
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -175,7 +178,7 @@ export const deleteUser = (userId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.delete(
-      `https://db-store-server.herokuapp.com/api/users/${userId}`,
+      ` https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/users/${userId}`,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       }
@@ -193,7 +196,7 @@ export const listTopSellers = () => async (dispatch) => {
   dispatch({ type: USER_TOPSELLERS_LIST_REQUEST });
   try {
     const { data } = await Axios.get(
-      'https://db-store-server.herokuapp.com/api/users/top-sellers'
+      ' https://martinkkyaloapi-4102a7d4ef00.herokuapp.com/api/users/top-sellers'
     );
     dispatch({ type: USER_TOPSELLERS_LIST_SUCCESS, payload: data });
   } catch (error) {
